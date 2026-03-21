@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Sitemap: https://crmbolat.kz/sitemap.xml
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Allow: /favicon.ico
+Allow: /robots.txt
