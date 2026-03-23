@@ -163,9 +163,9 @@ import { ArrowRight, TrendingUp, Zap, Shield } from 'lucide-react'
 import DarkVeil from './DarkVeil'
 
 const stats = [
-  { value: '150+', label: 'Успешных внедрений' },
+  { value: '400+', label: 'Успешных внедрений' },
   { value: '5 лет', label: 'На рынке' },
-  { value: 'x3.2', label: 'Средний рост продаж' },
+  { value: 'x3.5', label: 'Средний рост продаж' },
   { value: '98%', label: 'Довольных клиентов' },
 ]
 
@@ -231,7 +231,7 @@ export function HeroSection() {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border">
+        {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border">
           {stats.map((stat) => (
             <div key={stat.label} className="bg-background/80 backdrop-blur-sm px-6 py-6">
               <div
@@ -243,7 +243,7 @@ export function HeroSection() {
               <div className="text-sm text-muted-foreground">{stat.label}</div>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
 
     
@@ -290,10 +290,10 @@ export function AboutSection() {
 
           <div className="grid grid-cols-2 gap-4">
             {[
-              { val: '150+', desc: 'Проектов завершено' },
+              { val: '400+', desc: 'Проектов завершено' },
               { val: '5', desc: 'Лет на рынке' },
-              { val: '12', desc: 'Специалистов в команде' },
-              { val: '3x', desc: 'Средний рост выручки клиента' },
+              { val: '98%', desc: 'Довольных клиентов' },
+              { val: '3.5x', desc: 'Средний рост выручки клиента' },
             ].map((item) => (
               <div
                 key={item.desc}

@@ -163,7 +163,7 @@ const socialLinks = [
   },
   { 
     label: 'WhatsApp', 
-    href: 'https://wa.me/77006398062', 
+    href: 'https://wa.me/77066398062', 
     icon: MessageCircle,
     color: 'hover:text-green-500'
   },
@@ -217,7 +217,7 @@ export function Footer() {
                 className="flex items-center gap-2 hover:text-primary transition-colors"
               >
                 <Phone size={14} className="text-primary shrink-0" />
-                +7 (706) 639-8062
+                +7 (706) 639 80 62
               </a>
               <span className="flex items-center gap-2">
                 <MapPin size={14} className="text-primary shrink-0" />

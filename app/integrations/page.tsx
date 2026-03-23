@@ -35,8 +35,7 @@ export default function IntegrationsPage() {
       <main className="pt-16">
         {/* Hero */}
 
-<section className="bg-background border-b border-border relative overflow-hidden">
-  {/* Контент с текстом */}
+{/* <section className="bg-background border-b border-border relative overflow-hidden">
   <div className="relative z-10 py-24 px-6">
     <div className="max-w-7xl mx-auto">
       <div className="max-w-2xl">
@@ -51,12 +50,9 @@ export default function IntegrationsPage() {
           <span className="text-primary">для вашего бизнеса</span>
         </h1>
         
-        {/* Подложка для текста на мобильных */}
         <div className="relative">
-          {/* Полупрозрачная подложка для мобилок */}
           <div className="absolute inset-0 bg-background/50 backdrop-blur-sm rounded-lg md:hidden" />
           
-          {/* Текст */}
           <p className="relative text-lg text-muted-foreground leading-relaxed md:bg-transparent md:p-0 p-4 rounded-lg">
             Подключаем все каналы коммуникации, платёжные системы и сервисы к AmoCRM.
             Все данные — в одном месте, все процессы — автоматизированы.
@@ -66,7 +62,6 @@ export default function IntegrationsPage() {
     </div>
   </div>
 
-  {/* Изображение справа внизу */}
   <div className="absolute right-0 bottom-0 w-80 lg:w-96 pointer-events-none">
     <Image
       src="/swagy.png"
@@ -76,6 +71,42 @@ export default function IntegrationsPage() {
       className="w-full h-auto object-contain"
       priority
     />
+  </div>
+</section> */}
+
+<section className="bg-background py-24 px-6 border-b border-border">
+  <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+    {/* Левая часть с текстом */}
+    <div className="flex-1">
+      <span className="text-xs font-semibold uppercase tracking-widest text-primary mb-4 block">
+        Интеграции
+      </span>
+      <h1
+        className="text-5xl md:text-7xl font-bold text-balance mb-6 max-w-4xl"
+        style={{ fontFamily: 'var(--font-syne)' }}
+      >
+        Единая экосистема{' '}
+        <span className="text-primary">для вашего бизнеса</span>
+      </h1>
+      <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
+        Подключаем все каналы коммуникации, платёжные системы и сервисы к AmoCRM.
+            Все данные — в одном месте, все процессы — автоматизированы.
+      </p>
+    </div>
+
+    {/* Правая часть с изображением */}
+    <div className="flex-1 flex justify-center lg:justify-end items-end">
+      <div className="relative w-full max-w-xs">
+        <Image
+          src="/66.png"
+          alt="Swagy illustration"
+          width={300}
+          height={300}
+          className="w-full h-auto object-contain"
+          priority
+        />
+      </div>
+    </div>
   </div>
 </section>
 

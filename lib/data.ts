@@ -150,8 +150,8 @@ export const integrations = [
     id: 1,
     icon: '💬',
     name: 'Мессенджеры',
-    description: 'Подключаем WhatsApp Business API, Telegram и другие мессенджеры для общения с клиентами прямо из CRM.',
-    features: ['WhatsApp Business API', 'Telegram интеграция', 'Единая переписка в сделках'],
+    description: 'Подключаем WhatsApp Business API, Instagram, Telegram и другие мессенджеры для общения с клиентами прямо из CRM.',
+    features: ['WhatsApp Business API', 'Instagram', 'Единая переписка в сделках'],
     color: 'from-green-600/20 to-green-600/5',
 },
 {
