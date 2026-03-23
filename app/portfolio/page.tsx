@@ -159,8 +159,8 @@ export default function PortfolioPage() {
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border">
               {[
-                { value: '150+', label: 'Проектов реализовано' },
-                { value: '3.2x', label: 'Средний рост выручки' },
+                { value: '400+', label: 'Проектов реализовано' },
+                { value: '3.5x', label: 'Средний рост выручки' },
                 { value: '14 дней', label: 'Среднее время внедрения' },
                 { value: '98%', label: 'Клиентов рекомендуют нас' },
               ].map((stat) => (

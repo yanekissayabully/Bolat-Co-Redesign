@@ -7,6 +7,7 @@ import {
   AdvantagesSection,
   CasesPreview,
   CtaBanner,
+  TrustedBySection
 } from '@/components/home/home-sections'
 
 export default function HomePage() {
@@ -19,6 +20,7 @@ export default function HomePage() {
         <AdvantagesSection />
         <ServicesPreview />
         <CasesPreview />
+        <TrustedBySection />
         {/* <CtaBanner /> */}
         <ContactForm />
       </main>

@@ -199,6 +199,94 @@ export function CasesPreview() {
   )
 }
 
+export function TrustedBySection() {
+  const partners = [
+    {
+      id: '1',
+      name: 'TechCorp',
+      logo: '/logos/1.png',
+    },
+    {
+      id: '2',
+      name: 'InnovateLabs',
+      logo: '/logos/2.png',
+    },
+    {
+      id: '3',
+      name: 'SmartFlow',
+      logo: '/logos/3.webp',
+    },
+    {
+      id: '4',
+      name: 'DataCore',
+      logo: '/logos/4.jpg',
+    },
+    {
+      id: '5',
+      name: 'FutureSoft',
+      logo: '/logos/5.png',
+    },
+    {
+      id: '6',
+      name: 'AlphaGroup',
+      logo: '/logos/6.png',
+    },
+    {
+      id: '7',
+      name: 'PrimeSolutions',
+      logo: '/logos/m.png',
+    },
+    {
+      id: '8',
+      name: 'NexusTech',
+      logo: '/logos/8.svg',
+    },
+    {
+      id: '9',
+      name: 'Visionary',
+      logo: '/logos/sdu.png',
+    },
+    {
+      id: '10',
+      name: 'GlobalTrade',
+      logo: '/logos/10.png',
+    },
+  ]
+
+  return (
+    <section className="bg-card border-t border-border py-24 px-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="mb-14">
+          <span className="text-xs font-semibold uppercase tracking-widest text-primary mb-4 block">
+            Нам доверяют
+          </span>
+          <h2
+            className="text-4xl md:text-5xl font-bold text-balance max-w-xl"
+            style={{ fontFamily: 'var(--font-syne)' }}
+          >
+            Наши партнеры
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-px bg-border">
+          {partners.map((partner) => (
+            <div
+              key={partner.id}
+              className="bg-card p-4 md:p-6 flex items-center justify-center group transition-all duration-300 hover:bg-muted/30"
+            >
+              <img
+                src={partner.logo}
+                alt={partner.name}
+                className="w-full max-w-[100px] h-12 object-contain grayscale hover:grayscale-0 transition-all duration-300"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 export function CtaBanner() {
   return (
     <section className="bg-primary py-20 px-6">
