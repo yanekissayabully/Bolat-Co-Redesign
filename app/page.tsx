@@ -1,6 +1,6 @@
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
-import { ContactForm } from '@/components/contact-form'
+import { LeadForm } from '@/components/contact-form'
 import { HeroSection, AboutSection } from '@/components/home/hero-section'
 import {
   ServicesPreview,
@@ -21,8 +21,7 @@ export default function HomePage() {
         <ServicesPreview />
         <CasesPreview />
         <TrustedBySection />
-        {/* <CtaBanner /> */}
-        <ContactForm />
+        <LeadForm />
       </main>
       <Footer />
     </>

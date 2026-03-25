@@ -1,7 +1,7 @@
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
-import { ContactForm } from '@/components/contact-form'
-import { Check, ArrowRight, Users, TrendingUp, Handshake, DollarSign } from 'lucide-react'
+import { ContactForm } from '@/components/forma-os'
+import { Check, Users, TrendingUp, Handshake, DollarSign } from 'lucide-react'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 
@@ -73,32 +73,6 @@ export default function PartnersPage() {
     <>
       <Navbar />
       <main className="pt-16">
-        {/* Hero */}
-        {/* <section className="bg-background py-24 px-6 border-b border-border">
-          <div className="max-w-7xl mx-auto">
-            <span className="text-xs font-semibold uppercase tracking-widest text-primary mb-4 block">
-              Партнерам
-            </span>
-            <h1
-              className="text-5xl md:text-7xl font-bold text-balance mb-6 max-w-4xl"
-              style={{ fontFamily: 'var(--font-syne)' }}
-            >
-              Зарабатывайте вместе{' '}
-              <span className="text-primary">с нами</span>
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed mb-8">
-              Партнёрская программа Bolat & Co — рекомендуйте AmoCRM-внедрения вашим клиентам
-              и получайте комиссию до 25% с каждого проекта.
-            </p>
-            <a
-              href="#partner-form"
-              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 font-semibold uppercase tracking-wide text-sm hover:bg-primary/90 transition-colors"
-            >
-              Стать партнёром
-              <ArrowRight size={16} />
-            </a>
-          </div>
-        </section> */}
         <section className="bg-background py-24 px-6 border-b border-border">
                   <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
                     {/* Левая часть с текстом */}

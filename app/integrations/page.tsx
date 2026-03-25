@@ -1,8 +1,8 @@
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
-import { ContactForm } from '@/components/contact-form'
+import { LeadForm } from '@/components/contact-form'
 import { integrations } from '@/lib/data'
-import { Check, ArrowRight, Zap } from 'lucide-react'
+import { Check, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import Image from 'next/image'
@@ -34,46 +34,6 @@ export default function IntegrationsPage() {
       <Navbar />
       <main className="pt-16">
         {/* Hero */}
-
-{/* <section className="bg-background border-b border-border relative overflow-hidden">
-  <div className="relative z-10 py-24 px-6">
-    <div className="max-w-7xl mx-auto">
-      <div className="max-w-2xl">
-        <span className="text-xs font-semibold uppercase tracking-widest text-primary mb-4 block">
-          Интеграции
-        </span>
-        <h1
-          className="text-5xl md:text-7xl font-bold text-balance mb-6"
-          style={{ fontFamily: 'var(--font-syne)' }}
-        >
-          Единая экосистема{' '}
-          <span className="text-primary">для вашего бизнеса</span>
-        </h1>
-        
-        <div className="relative">
-          <div className="absolute inset-0 bg-background/50 backdrop-blur-sm rounded-lg md:hidden" />
-          
-          <p className="relative text-lg text-muted-foreground leading-relaxed md:bg-transparent md:p-0 p-4 rounded-lg">
-            Подключаем все каналы коммуникации, платёжные системы и сервисы к AmoCRM.
-            Все данные — в одном месте, все процессы — автоматизированы.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div className="absolute right-0 bottom-0 w-80 lg:w-96 pointer-events-none">
-    <Image
-      src="/swagy.png"
-      alt="Integrations illustration"
-      width={500}
-      height={500}
-      className="w-full h-auto object-contain"
-      priority
-    />
-  </div>
-</section> */}
-
 <section className="bg-background py-24 px-6 border-b border-border">
   <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
     {/* Левая часть с текстом */}
@@ -158,33 +118,6 @@ export default function IntegrationsPage() {
           </div>
         </section>
 
-        {/* Tech Stack */}
-        {/* <section className="bg-background border-t border-border py-24 px-6">
-          <div className="max-w-7xl mx-auto">
-            <div className="mb-14">
-              <span className="text-xs font-semibold uppercase tracking-widest text-primary mb-4 block">
-                Технологии
-              </span>
-              <h2
-                className="text-4xl font-bold text-balance"
-                style={{ fontFamily: 'var(--font-syne)' }}
-              >
-                Работаем с любым стеком
-              </h2>
-            </div>
-            <div className="flex flex-wrap gap-3">
-              {techStack.map((tech) => (
-                <span
-                  key={tech}
-                  className="px-4 py-2 border border-border text-sm text-muted-foreground hover:border-primary hover:text-foreground transition-colors cursor-default"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-        </section> */}
-
         {/* Why integrate */}
         <section className="bg-card border-t border-border py-24 px-6">
           <div className="max-w-7xl mx-auto">
@@ -244,9 +177,7 @@ export default function IntegrationsPage() {
           </div>
         </section>
 
-        <ContactForm
-          title="Какую интеграцию нужно подключить?"
-          subtitle="Расскажите о вашей задаче — предложим оптимальное решение"
+        <LeadForm
         />
       </main>
       <Footer />

@@ -1,6 +1,6 @@
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
-import { ContactForm } from '@/components/contact-form'
+import { LeadForm } from '@/components/contact-form'
 import { cases } from '@/lib/data'
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
@@ -19,24 +19,6 @@ export default function PortfolioPage() {
       <Navbar />
       <main className="pt-16">
         {/* Hero */}
-        {/* <section className="bg-background py-24 px-6 border-b border-border">
-          <div className="max-w-7xl mx-auto">
-            <span className="text-xs font-semibold uppercase tracking-widest text-primary mb-4 block">
-              Портфолио
-            </span>
-            <h1
-              className="text-5xl md:text-7xl font-bold text-balance mb-6 max-w-4xl"
-              style={{ fontFamily: 'var(--font-syne)' }}
-            >
-              Факты важнее{' '}
-              <span className="text-primary">слов</span>
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              Реальные кейсы с измеримыми результатами. Каждый проект — это проблема клиента,
-              наше решение и конкретные цифры.
-            </p>
-          </div>
-        </section> */}
         <section className="bg-background py-24 px-6 border-b border-border">
           <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
             {/* Левая часть с текстом */}
@@ -178,34 +160,8 @@ export default function PortfolioPage() {
           </div>
         </section>
 
-        {/* CTA */}
-        {/* <section className="bg-primary py-20 px-6">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-            <div>
-              <h2
-                className="text-3xl md:text-4xl font-bold text-primary-foreground text-balance"
-                style={{ fontFamily: 'var(--font-syne)' }}
-              >
-                Хотите стать следующим кейсом?
-              </h2>
-              <p className="text-primary-foreground/70 mt-2 text-lg">
-                Обсудим вашу задачу бесплатно.
-              </p>
-            </div>
-            <Link
-              href="#contact"
-              className="shrink-0 inline-flex items-center gap-2 bg-background text-foreground px-8 py-4 font-semibold uppercase tracking-wide text-sm hover:bg-background/90 transition-colors"
-            >
-              Оставить заявку
-              <ArrowRight size={16} />
-            </Link>
-          </div>
-        </section> */}
+        <LeadForm/>
 
-        <ContactForm
-          title="Обсудим ваш проект?"
-          subtitle="Расскажите о задаче — сделаем вас следующим кейсом"
-        />
       </main>
       <Footer />
     </>

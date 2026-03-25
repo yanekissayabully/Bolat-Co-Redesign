@@ -1,6 +1,6 @@
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
-import { ContactForm } from '@/components/contact-form'
+import { LeadForm} from '@/components/contact-form'
 import { services } from '@/lib/data'
 import { Check, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
@@ -27,24 +27,6 @@ export default function ServicesPage() {
       <Navbar />
       <main className="pt-16">
         {/* Hero */}
-        {/* <section className="bg-background py-24 px-6 border-b border-border">
-          <div className="max-w-7xl mx-auto">
-            <span className="text-xs font-semibold uppercase tracking-widest text-primary mb-4 block">
-              Услуги
-            </span>
-            <h1
-              className="text-5xl md:text-7xl font-bold text-balance mb-6 max-w-4xl"
-              style={{ fontFamily: 'var(--font-syne)' }}
-            >
-              Всё для роста{' '}
-              <span className="text-primary">ваших продаж</span>
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              Комплексные решения на базе AmoCRM — от аудита текущих процессов до полноценного
-              запуска и поддержки системы продаж.
-            </p>
-          </div>
-        </section> */}
 
         <section className="bg-background py-24 px-6 border-b border-border">
   <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
@@ -174,7 +156,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        <ContactForm />
+        <LeadForm />
       </main>
       <Footer />
     </>

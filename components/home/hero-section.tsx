@@ -173,7 +173,7 @@ export function HeroSection() {
   return (
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-16">
       {/* DarkVeil Background */}
-      <div className="absolute inset-0 w-full h-full">
+      {/* <div className="absolute inset-0 w-full h-full">
         <DarkVeil
           hueShift={15}
           noiseIntensity={0}
@@ -183,9 +183,8 @@ export function HeroSection() {
           warpAmount={0.05}
           resolutionScale={1}
         />
-        {/* Overlay для улучшения читаемости текста */}
         <div className="absolute inset-0 bg-background/50 backdrop-blur-[2px]" />
-      </div>
+      </div> */}
 
       {/* Orange glow */}
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none z-10" />
