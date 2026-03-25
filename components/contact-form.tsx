@@ -368,7 +368,7 @@ export function LeadForm() {
               {/* ── Step 1 ── */}
               {step === 1 && (
                 <StepShell step={1} label="Бизнес" question="Чем занимается ваш бизнес?">
-                  <div className="flex flex-col gap-3 mt-14 pt-7">
+                  <div className="flex flex-col gap-3">
                     {[
                       'Розница (цветы / одежда / товары и др.)',
                       'Услуги (салон / студия / агентство и др.)',
@@ -504,7 +504,7 @@ export function LeadForm() {
               )}
 
               {/* Navigation */}
-              <div className="flex items-center justify-between mt-14 pt-10 border-t border-border">
+              <div className="flex items-center justify-between mt-10 pt-6 border-t border-border">
                 <button
                   type="button"
                   onClick={back}

@@ -39,7 +39,7 @@ export const cases = [
   },
   {
     id: 3,
-    company: 'KazNU University',
+    company: 'KazNU',
     industry: 'Образование',
     tag: 'Воронка продаж',
     problem:
