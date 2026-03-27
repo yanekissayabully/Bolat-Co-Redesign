@@ -753,7 +753,7 @@ export function LeadForm() {
 🌐 *Страница:* ${window.location.href}
     `
 
-    const response = await fetch('/api/send-telegram', {
+    const response = await fetch('/send-telegram.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ 

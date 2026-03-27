@@ -236,13 +236,12 @@ export default function ServicesPage() {
                   className="text-5xl md:text-6xl font-bold text-balance mb-6"
                   style={{ fontFamily: 'var(--font-syne)' }}
                 >
-                  Что такое{' '}
-                  <span className="text-primary">VSL</span>
-                  {' '}и как это меняет бизнес?
+                  Посмотрите как работает{' '}
+                  <span className="text-primary">amoCRM</span>
+                  {' '}перед заявкой
                 </h1>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  Посмотрите видео, чтобы понять, как VSL помогает 
-                  автоматизировать продажи и масштабировать бизнес.
+                  Короткое видео покажет интерфейс, логику работы и ключевые возможности CRM. Рекомендуем ознакомиться перед тем, как оставить заявку — в конце вас ждут дополнительные условия от нас.
                 </p>
                 
                 {/* Индикатор просмотра */}
@@ -280,8 +279,9 @@ export default function ServicesPage() {
         </section>
         
         {/* Передаем время просмотра в форму через пропс */}
-        <TrustedBySection />
         <LeadForm vslWatchTime={watchTime} />
+        <TrustedBySection />
+        
       </main>
       <Footer />
     </>
