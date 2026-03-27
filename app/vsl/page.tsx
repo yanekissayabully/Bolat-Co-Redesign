@@ -1,162 +1,287 @@
+// 'use client'
+
+// import { Navbar } from '@/components/navbar'
+// import { Footer } from '@/components/footer'
+// import { LeadForm } from '@/components/vsl-contact'
+// import type { Metadata } from 'next'
+// import { useState, useEffect, useRef } from 'react'
+
+// export default function ServicesPage() {
+//   const [watchTime, setWatchTime] = useState(0) // Время просмотра в секундах
+//   const [isPlaying, setIsPlaying] = useState(false)
+//   const videoRef = useRef<HTMLVideoElement>(null)
+//   const watchIntervalRef = useRef<NodeJS.Timeout | null>(null)
+
+//   // Функция для получения времени просмотра (вызывается из формы)
+//   const getWatchTime = () => {
+//     return watchTime
+//   }
+
+//   // Сохраняем функцию в window, чтобы LeadForm мог её вызвать
+//   useEffect(() => {
+//     if (typeof window !== 'undefined') {
+//       // @ts-ignore
+//       window.getVSLWatchTime = getWatchTime
+//     }
+//   }, [watchTime])
+
+//   // Отслеживание времени просмотра
+//   useEffect(() => {
+//     const video = videoRef.current
+//     if (!video) return
+
+//     const handlePlay = () => {
+//       setIsPlaying(true)
+//       // Начинаем отслеживать время каждую секунду
+//       if (watchIntervalRef.current) clearInterval(watchIntervalRef.current)
+//       watchIntervalRef.current = setInterval(() => {
+//         if (video && !video.paused && !video.ended) {
+//           setWatchTime(prev => prev + 1)
+//         }
+//       }, 1000)
+//     }
+
+//     const handlePause = () => {
+//       setIsPlaying(false)
+//       if (watchIntervalRef.current) {
+//         clearInterval(watchIntervalRef.current)
+//         watchIntervalRef.current = null
+//       }
+//     }
+
+//     const handleEnded = () => {
+//       setIsPlaying(false)
+//       if (watchIntervalRef.current) {
+//         clearInterval(watchIntervalRef.current)
+//         watchIntervalRef.current = null
+//       }
+//     }
+
+//     video.addEventListener('play', handlePlay)
+//     video.addEventListener('pause', handlePause)
+//     video.addEventListener('ended', handleEnded)
+
+//     return () => {
+//       video.removeEventListener('play', handlePlay)
+//       video.removeEventListener('pause', handlePause)
+//       video.removeEventListener('ended', handleEnded)
+//       if (watchIntervalRef.current) {
+//         clearInterval(watchIntervalRef.current)
+//       }
+//     }
+//   }, [])
+
+//   // Форматирование времени (секунды -> мм:сс)
+//   const formatTime = (seconds: number) => {
+//     const mins = Math.floor(seconds / 60)
+//     const secs = seconds % 60
+//     return `${mins}:${secs.toString().padStart(2, '0')}`
+//   }
+
+//   return (
+//     <>
+//       <Navbar />
+//       <main className="pt-16">
+//         {/* Hero с видео */}
+//         <section className="bg-background py-24 px-6 border-b border-border">
+//           <div className="max-w-7xl mx-auto">
+//             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+              
+//               {/* Левая часть с текстом */}
+//               <div className="sticky top-24">
+//                 <span className="text-xs font-semibold uppercase tracking-widest text-primary mb-4 block">
+//                   Видео-презентация
+//                 </span>
+//                 <h1
+//                   className="text-5xl md:text-6xl font-bold text-balance mb-6"
+//                   style={{ fontFamily: 'var(--font-syne)' }}
+//                 >
+//                   Что такое{' '}
+//                   <span className="text-primary">VSL</span>
+//                   {' '}и как это меняет бизнес?
+//                 </h1>
+//                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+//                   Посмотрите видео, чтобы понять, как VSL помогает 
+//                   автоматизировать продажи и масштабировать бизнес.
+//                 </p>
+//               </div>
+
+//               {/* Правая часть с видео */}
+//               <div className="relative">
+//                 <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-primary/10 bg-black">
+//                   <video
+//                     ref={videoRef}
+//                     className="w-full h-auto"
+//                     controls
+//                     preload="metadata"
+//                     poster="/vsl.png" // Добавьте постер, если есть
+//                   >
+//                     <source src="/Muha.mp4" type="video/mp4" />
+//                     Ваш браузер не поддерживает видео.
+//                   </video>
+//                 </div>
+//                 {/* Декоративные элементы */}
+//                 <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-primary/10 rounded-full blur-3xl -z-10"></div>
+//                 <div className="absolute -top-4 -left-4 w-32 h-32 bg-primary/5 rounded-full blur-3xl -z-10"></div>
+//               </div>
+//             </div>
+//           </div>
+//         </section>
+        
+//         {/* Передаем время просмотра в форму через пропс */}
+//         <LeadForm vslWatchTime={watchTime} />
+//       </main>
+//       <Footer />
+//     </>
+//   )
+// }
+
+
+
+'use client'
+
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
-import { LeadForm} from '@/components/contact-form'
-import { services } from '@/lib/data'
-import { Check, ArrowRight } from 'lucide-react'
-import Link from 'next/link'
-import type { Metadata } from 'next'
-import Image from 'next/image'
-
-export const metadata: Metadata = {
-  title: 'VSL — Bolat & Co',
-  description:
-    'Внедрение AmoCRM, настройка воронок продаж, автоматизация процессов, консалтинг и поддержка. Полный цикл работы с CRM.',
-}
-
-const process = [
-  { num: '01', title: 'Аудит', desc: 'Изучаем ваши процессы, находим узкие места и точки роста.' },
-  { num: '02', title: 'Стратегия', desc: 'Создаём план внедрения с чёткими KPI и сроками.' },
-  { num: '03', title: 'Настройка', desc: 'Конфигурируем AmoCRM, интегрируем нужные сервисы.' },
-  { num: '04', title: 'Обучение', desc: 'Проводим обучение команды и тестируем все сценарии.' },
-  { num: '05', title: 'Запуск', desc: 'Запускаем систему в бой и сопровождаем первые 30 дней.' },
-]
+import { LeadForm } from '@/components/vsl-contact'
+import { useState, useEffect, useRef } from 'react'
+import { TrustedBySection } from '@/components/home/home-sections'
 
 export default function ServicesPage() {
+  const [watchTime, setWatchTime] = useState(0) // Время просмотра в секундах
+  const [isPlaying, setIsPlaying] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const watchIntervalRef = useRef<NodeJS.Timeout | null>(null)
+
+  // Функция для получения времени просмотра (вызывается из формы)
+  const getWatchTime = () => {
+    return watchTime
+  }
+
+  // Сохраняем функцию в window, чтобы LeadForm мог её вызвать
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      // @ts-ignore
+      window.getVSLWatchTime = getWatchTime
+    }
+  }, [watchTime])
+
+  // Отслеживание времени просмотра
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+
+    const handlePlay = () => {
+      setIsPlaying(true)
+      // Начинаем отслеживать время каждую секунду
+      if (watchIntervalRef.current) clearInterval(watchIntervalRef.current)
+      watchIntervalRef.current = setInterval(() => {
+        if (video && !video.paused && !video.ended) {
+          setWatchTime(prev => prev + 1)
+        }
+      }, 1000)
+    }
+
+    const handlePause = () => {
+      setIsPlaying(false)
+      if (watchIntervalRef.current) {
+        clearInterval(watchIntervalRef.current)
+        watchIntervalRef.current = null
+      }
+    }
+
+    const handleEnded = () => {
+      setIsPlaying(false)
+      if (watchIntervalRef.current) {
+        clearInterval(watchIntervalRef.current)
+        watchIntervalRef.current = null
+      }
+    }
+
+    video.addEventListener('play', handlePlay)
+    video.addEventListener('pause', handlePause)
+    video.addEventListener('ended', handleEnded)
+
+    return () => {
+      video.removeEventListener('play', handlePlay)
+      video.removeEventListener('pause', handlePause)
+      video.removeEventListener('ended', handleEnded)
+      if (watchIntervalRef.current) {
+        clearInterval(watchIntervalRef.current)
+      }
+    }
+  }, [])
+
+  // Форматирование времени (секунды -> мм:сс)
+  const formatTime = (seconds: number) => {
+    const mins = Math.floor(seconds / 60)
+    const secs = seconds % 60
+    return `${mins}:${secs.toString().padStart(2, '0')}`
+  }
+
   return (
     <>
       <Navbar />
       <main className="pt-16">
-        {/* Hero */}
-
+        {/* Hero с видео */}
         <section className="bg-background py-24 px-6 border-b border-border">
-  <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
-    {/* Левая часть с текстом */}
-    <div className="flex-1">
-      <span className="text-xs font-semibold uppercase tracking-widest text-primary mb-4 block">
-        Услуги
-      </span>
-      <h1
-        className="text-5xl md:text-7xl font-bold text-balance mb-6 max-w-4xl"
-        style={{ fontFamily: 'var(--font-syne)' }}
-      >
-        Всё для роста{' '}
-        <span className="text-primary">ваших продаж</span>
-      </h1>
-      <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
-        Комплексные решения на базе AmoCRM — от аудита текущих процессов до полноценного
-        запуска и поддержки системы продаж.
-      </p>
-    </div>
-
-    {/* Правая часть с изображением */}
-    <div className="flex-1 flex justify-center lg:justify-end items-end">
-      <div className="relative w-full max-w-xs">
-        <Image
-          src="/1.png"
-          alt="Swagy illustration"
-          width={300}
-          height={300}
-          className="w-full h-auto object-contain"
-          priority
-        />
-      </div>
-    </div>
-  </div>
-</section>
-
-        {/* Services List */}
-        <section className="bg-card py-24 px-6">
           <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col gap-px bg-border">
-              {services.map((service, idx) => (
-                <div
-                  key={service.id}
-                  className="bg-card hover:bg-secondary transition-colors group"
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              
+              {/* Левая часть с текстом */}
+              <div>
+                <span className="text-xs font-semibold uppercase tracking-widest text-primary mb-4 block">
+                  Знакомство
+                </span>
+                <h1
+                  className="text-5xl md:text-6xl font-bold text-balance mb-6"
+                  style={{ fontFamily: 'var(--font-syne)' }}
                 >
-                  <div className="p-8 md:p-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-                    <div className="md:col-span-1">
-                      <span
-                        className="text-4xl font-bold text-border group-hover:text-primary/30 transition-colors"
-                        style={{ fontFamily: 'var(--font-syne)' }}
-                      >
-                        {service.icon}
-                      </span>
-                    </div>
-                    <div className="md:col-span-5">
-                      <h2
-                        className="text-2xl md:text-3xl font-bold mb-3"
-                        style={{ fontFamily: 'var(--font-syne)' }}
-                      >
-                        {service.title}
-                      </h2>
-                      <p className="text-muted-foreground leading-relaxed">{service.description}</p>
-                    </div>
-                    <div className="md:col-span-4">
-                      <ul className="flex flex-col gap-2">
-                        {service.features.map((f) => (
-                          <li key={f} className="flex items-center gap-2 text-sm text-muted-foreground">
-                            <Check size={14} className="text-primary shrink-0" />
-                            {f}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="md:col-span-2 flex items-start justify-end">
-                      <Link
-                        href="#contact"
-                        className="inline-flex items-center gap-2 border border-primary text-primary px-5 py-2.5 text-sm font-semibold uppercase tracking-wide hover:bg-primary hover:text-primary-foreground transition-colors rounded-lg"
-                      >
-                        Заказать
-                        <ArrowRight size={14} />
-                      </Link>
-                    </div>
+                  Что такое{' '}
+                  <span className="text-primary">VSL</span>
+                  {' '}и как это меняет бизнес?
+                </h1>
+                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                  Посмотрите видео, чтобы понять, как VSL помогает 
+                  автоматизировать продажи и масштабировать бизнес.
+                </p>
+                
+                {/* Индикатор просмотра */}
+                {/* {watchTime > 0 && (
+                  <div className="bg-primary/10 rounded-xl p-4 border border-primary/20 mt-6">
+                    <p className="text-sm text-muted-foreground">⏱️ Время просмотра видео:</p>
+                    <p className="text-2xl font-bold text-primary">{formatTime(watchTime)}</p>
+                    {isPlaying && (
+                      <p className="text-xs text-primary mt-1">▶️ Смотрим...</p>
+                    )}
                   </div>
-                  {idx < services.length - 1 && (
-                    <div className="h-px bg-border mx-8 md:mx-10" />
-                  )}
+                )} */}
+              </div>
+
+              {/* Правая часть с видео */}
+              <div className="relative w-full">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-primary/10 bg-black aspect-video">
+                  <video
+                    ref={videoRef}
+                    className="absolute inset-0 w-full h-full object-contain"
+                    controls
+                    preload="metadata"
+                    // poster="/vsl.png"
+                  >
+                    <source src="/Muha.mp4" type="video/mp4" />
+                    Ваш браузер не поддерживает видео.
+                  </video>
                 </div>
-              ))}
+                {/* Декоративные элементы */}
+                <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-primary/10 rounded-full blur-3xl -z-10"></div>
+                <div className="absolute -top-4 -left-4 w-32 h-32 bg-primary/5 rounded-full blur-3xl -z-10"></div>
+              </div>
             </div>
           </div>
         </section>
-
-        {/* Process */}
-        <section className="bg-background border-t border-border py-24 px-6">
-          <div className="max-w-7xl mx-auto">
-            <div className="mb-14">
-              <span className="text-xs font-semibold uppercase tracking-widest text-primary mb-4 block">
-                Как мы работаем
-              </span>
-              <h2
-                className="text-4xl md:text-5xl font-bold text-balance"
-                style={{ fontFamily: 'var(--font-syne)' }}
-              >
-                Наш процесс
-              </h2>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-px bg-border">
-              {process.map((step) => (
-                <div key={step.num} className="bg-card p-8 flex flex-col gap-4">
-                  <span
-                    className="text-4xl font-bold text-primary"
-                    style={{ fontFamily: 'var(--font-syne)' }}
-                  >
-                    {step.num}
-                  </span>
-                  <h3
-                    className="text-lg font-bold"
-                    style={{ fontFamily: 'var(--font-syne)' }}
-                  >
-                    {step.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <LeadForm />
+        
+        {/* Передаем время просмотра в форму через пропс */}
+        <TrustedBySection />
+        <LeadForm vslWatchTime={watchTime} />
       </main>
       <Footer />
     </>
