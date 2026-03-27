@@ -277,7 +277,7 @@ export function TrustedBySection() {
               <img
                 src={partner.logo}
                 alt={partner.name}
-                className="w-full max-w-[100px] h-12 object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                className="w-full max-w-[100px] h-12 object-contain transition-all duration-300"
               />
             </div>
           ))}
